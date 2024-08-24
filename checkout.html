@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - LooK Cosméticos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #5e05b1;
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container h1 {
+            margin-top: 0;
+            color: #5e05b1;
+        }
+        .product-info {
+            margin-bottom: 20px;
+        }
+        .product-info img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product-info h2 {
+            margin: 10px 0;
+        }
+        .payment-methods {
+            margin-bottom: 20px;
+        }
+        .payment-methods h2 {
+            color: #5e05b1;
+        }
+        .payment-methods input {
+            margin-right: 10px;
+        }
+        .checkout-button {
+            background-color: #5e05b1;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        .checkout-button:hover {
+            background-color: #4b04a5;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Checkout - LooK Cosméticos</h1>
+</header>
+
+<div class="container">
+    <div class="product-info">
+        <img src="" id="product-image" alt="Imagem do Produto">
+        <h2 id="product-name">Nome do Produto</h2>
+        <p id="product-price">Preço: R$ 0,00</p>
+    </div>
+
+    <div class="payment-methods">
+        <h2>Formas de Pagamento</h2>
+        <input type="radio" id="pix" name="payment" value="pix">
+        <label for="pix">Pix</label><br>
+        <input type="radio" id="credit-card" name="payment" value="credit-card">
+        <label for="credit-card">Cartão de Crédito</label><br>
+        <input type="radio" id="debit-card" name="payment" value="debit-card">
+        <label for="debit-card">Cartão de Débito</label>
+    </div>
+
+    <a href="https://pag.ae/7-RoCQ8M7" class="checkout-button" target="_blank">Finalizar Compra</a>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 LooK Cosméticos | <a href="https://www.lookcosmeticos.com.br">www.lookcosmeticos.com.br</a></p>
+</div>
+
+<script>
+    // Script para obter parâmetros da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('produto');
+
+    // Exemplo de dados dos produtos
+    const products = {
+        '1': { name: 'Máscara Morte Súbita 450g', image: 'https://lolacosmetics.jetassets.com.br/produto/20201123175717_8088991912_H.png', price: 'R$ 45,00' },
+        // Adicione mais produtos conforme necessário
+    };
+
+    const product = products[productId] || { name: 'Produto Indisponível', image: '', price: 'R$ 0,00' };
+
+    document.getElementById('product-image').src = product.image;
+    document.getElementById('product-name').textContent = product.name;
+    document.getElementById('product-price').textContent = `Preço: ${product.price}`;
+</script>
+
+</body>
+</html>
